@@ -26,7 +26,6 @@ public class ModCreativeModTabs {
                         for(RegistryObject<Item> item : ModItems.ITEMS.getEntries()) {
                             output.accept(item.get());
                         }
-                        output.accept(Items.DIAMOND);
                     })
                     .build());
 

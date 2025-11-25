@@ -1,6 +1,7 @@
 package net.ShadowStorm7894.CustomLootCrates;
 
 import com.mojang.logging.LogUtils;
+import net.ShadowStorm7894.CustomLootCrates.block.ModBlocks;
 import net.ShadowStorm7894.CustomLootCrates.item.ModCreativeModTabs;
 import net.ShadowStorm7894.CustomLootCrates.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -31,6 +32,8 @@ public class CustomLootCrates
         ModCreativeModTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+
 
         modEventBus.addListener(this::commonSetup);
 
