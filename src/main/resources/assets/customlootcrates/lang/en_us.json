@@ -1,14 +1,5 @@
 {
-  "item.customlootcrates.sapphire": "Sapphire",
-  "item.customlootcrates.raw_sapphire": "Raw Sapphire",
-  "item.customlootcrates.metal_detector": "Metal Detector",
 
-  "block.customlootcrates.sapphire_block": "Block of Sapphire",
-  "block.customlootcrates.raw_sapphire_block": "Block of Raw Sapphire",
-  "block.customlootcrates.sapphire_ore": "Sapphire Ore",
-  "block.customlootcrates.deepslate_sapphire_ore": "Deepslate Sapphire Ore",
-  "block.customlootcrates.nether_sapphire_ore": "Nether Sapphire Ore",
-  "block.customlootcrates.end_stone_sapphire_ore": "End Stone Sapphire Ore",
 
   "creativetab.loot_crates_tab": "Loot Crates Tab"
 

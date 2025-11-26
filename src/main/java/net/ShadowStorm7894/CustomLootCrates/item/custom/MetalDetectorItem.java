@@ -1,6 +1,5 @@
 package net.ShadowStorm7894.CustomLootCrates.item.custom;
 
-import net.ShadowStorm7894.CustomLootCrates.block.ModCubes;
 import net.ShadowStorm7894.CustomLootCrates.tags.ModTags;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
@@ -10,7 +9,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class MetalDetectorItem extends Item {

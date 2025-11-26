@@ -1,8 +1,6 @@
 package net.ShadowStorm7894.CustomLootCrates.datagen;
 
 import net.ShadowStorm7894.CustomLootCrates.CustomLootCrates;
-import net.ShadowStorm7894.CustomLootCrates.block.ModBlocks;
-import net.ShadowStorm7894.CustomLootCrates.block.ModCubes;
 import net.ShadowStorm7894.CustomLootCrates.tags.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -21,10 +19,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
-        this.tag(ModTags.Blocks.METAL_DETECTOR_VALUABLES)
+        this.tag(ModTags.Blocks.LOOT_CRATE)
             .add(ModCubes.SAPPHIRE_ORE.get()).addTag(Tags.Blocks.ORES);
-        this.tag(BlockTags.NEEDS_IRON_TOOL)
-                .add(ModCubes.SAPPHIRE_ORE.get()).addTag(Tags.Blocks.ORES);
 
     }
 }

@@ -1,7 +1,8 @@
 package net.ShadowStorm7894.CustomLootCrates;
 
 import com.mojang.logging.LogUtils;
-import net.ShadowStorm7894.CustomLootCrates.block.ModCubes;
+import net.ShadowStorm7894.CustomLootCrates.block.ModCrates;
+import net.ShadowStorm7894.CustomLootCrates.item.ModCrateItems;
 import net.ShadowStorm7894.CustomLootCrates.item.ModCreativeModTabs;
 import net.ShadowStorm7894.CustomLootCrates.item.ModItems;
 import net.minecraftforge.api.distmarker.Dist;
@@ -14,6 +15,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLPaths;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -31,7 +33,8 @@ public class CustomLootCrates
         //runs the custom events
         ModCreativeModTabs.register(modEventBus);
         ModItems.register(modEventBus);
-        ModCubes.register(modEventBus);
+        ModCrateItems.register(modEventBus);
+        ModCrates.register(modEventBus);
 
 
         modEventBus.addListener(this::commonSetup);
