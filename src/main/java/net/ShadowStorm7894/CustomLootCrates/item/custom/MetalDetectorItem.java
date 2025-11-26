@@ -1,6 +1,7 @@
 package net.ShadowStorm7894.CustomLootCrates.item.custom;
 
-import net.ShadowStorm7894.CustomLootCrates.block.ModBlocks;
+import net.ShadowStorm7894.CustomLootCrates.block.ModCubes;
+import net.ShadowStorm7894.CustomLootCrates.tags.ModTags;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -17,12 +18,15 @@ public class MetalDetectorItem extends Item {
         super(pProperties);
     }
 
+    //adds right click functionality
     @Override
     public InteractionResult useOn(UseOnContext pContext) {
+        //not client side only
         if(!pContext.getLevel().isClientSide()){
             BlockPos positionClicked = pContext.getClickedPos();
             Player player = pContext.getPlayer();
             boolean foundblock = false;
+            //from blocks starting at selected then going down
             for(int i = 0; i <= positionClicked.getY() + 64; i++){
                 BlockPos blockPos = positionClicked.below(i);
                 BlockState state = pContext.getLevel().getBlockState(blockPos);
@@ -45,12 +49,15 @@ public class MetalDetectorItem extends Item {
         return InteractionResult.SUCCESS;
     }
 
+    //send message to player
     private void outputValuableCoordinates(BlockPos blockPos, Player player, Block block) {
         player.sendSystemMessage(Component.literal("Found" + I18n.get(block.getDescriptionId()) + " at " +
                 "(" + blockPos.getX() + ", " + blockPos.getY() + ", " + blockPos.getZ() + ")"));
     }
 
+    //list of valuable blocks
     private boolean isValuableBlock(BlockState state) {
-        return state.is(Blocks.IRON_ORE) || state.is(Blocks.DIAMOND_ORE) || state.is(ModBlocks.SAPPHIRE_BLOCK.get());
+        //return state.is(ModCubes.SAPPHIRE_BLOCK.get());
+        return state.is(ModTags.Blocks.METAL_DETECTOR_VALUABLES);
     }
 }

@@ -1,10 +1,9 @@
 package net.ShadowStorm7894.CustomLootCrates;
 
 import com.mojang.logging.LogUtils;
-import net.ShadowStorm7894.CustomLootCrates.block.ModBlocks;
+import net.ShadowStorm7894.CustomLootCrates.block.ModCubes;
 import net.ShadowStorm7894.CustomLootCrates.item.ModCreativeModTabs;
 import net.ShadowStorm7894.CustomLootCrates.item.ModItems;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -29,10 +28,10 @@ public class CustomLootCrates
     public CustomLootCrates(FMLJavaModLoadingContext context){
         IEventBus modEventBus = context.getModEventBus();
 
+        //runs the custom events
         ModCreativeModTabs.register(modEventBus);
-
         ModItems.register(modEventBus);
-        ModBlocks.register(modEventBus);
+        ModCubes.register(modEventBus);
 
 
         modEventBus.addListener(this::commonSetup);
