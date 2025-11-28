@@ -1,6 +1,7 @@
 package net.ShadowStorm7894.CustomLootCrates.datagen;
 
 import net.ShadowStorm7894.CustomLootCrates.CustomLootCrates;
+import net.ShadowStorm7894.CustomLootCrates.block.ModCrates;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
@@ -15,7 +16,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        for(RegistryObject<Block> blocks : Modcubes.CUBES.getEntries()){
+        for(RegistryObject<Block> blocks : ModCrates.CRATES.getEntries()){
             cubeWithItem(blocks);
         }
     }

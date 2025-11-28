@@ -1,6 +1,7 @@
 package net.ShadowStorm7894.CustomLootCrates.item;
 
 import net.ShadowStorm7894.CustomLootCrates.CustomLootCrates;
+import net.ShadowStorm7894.CustomLootCrates.block.ModCrates;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -20,11 +21,14 @@ public class ModCreativeModTabs {
     //adds items to a custom creative mod tab
     public static final RegistryObject<CreativeModeTab> LOOT_CRATES_TAB = CREATIVE_MODS_TABS.register("loot_crates_tab",
             () -> CreativeModeTab.builder()
-                    .icon(() -> new ItemStack(ModItems.SAPPHIRE.get()))
+                    .icon(() -> new ItemStack(ModItems.EXAMPLE_CRATE_KEY.get()))
                     .title(Component.translatable("creativetab.loot_crates_tab"))
                     .displayItems((itemDisplayParameters, output) -> {
                         //for every RegistryObject of type Item, inside ModItems.ITEMS, place in the creative mod tab
                         for(RegistryObject<Item> item : ModItems.ITEMS.getEntries()) {
+                            output.accept(item.get());
+                        }
+                        for(RegistryObject<Item> item : ModCrateItems.CRATE_ITEMS.getEntries()) {
                             output.accept(item.get());
                         }
                     })

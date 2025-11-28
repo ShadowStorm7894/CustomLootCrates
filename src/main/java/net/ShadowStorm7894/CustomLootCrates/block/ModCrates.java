@@ -1,6 +1,7 @@
 package net.ShadowStorm7894.CustomLootCrates.block;
 
 import net.ShadowStorm7894.CustomLootCrates.CustomLootCrates;
+import net.ShadowStorm7894.CustomLootCrates.item.ModCrateItems;
 import net.ShadowStorm7894.CustomLootCrates.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -19,10 +20,10 @@ public class ModCrates {
         DeferredRegister.create(ForgeRegistries.BLOCKS, CustomLootCrates.MOD_ID);
 
 
-        public static final RegistryObject<Block> EXAMPLE_CRATE = registerBlock("example_crate",
+        public static final RegistryObject<Block> EXAMPLE_CRATE = CRATES.register("example_crate",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.BEDROCK)));
 
-
+        /*
         private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block){
             //adds the block to BLOCKS
             RegistryObject<T> toReturn = CRATES.register(name, block);
@@ -33,9 +34,9 @@ public class ModCrates {
 
         private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block){
             //registers block to ITEMS
-            RegistryObject<Item> BlockItem = ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+            RegistryObject<Item> BlockItem = ModCrateItems.CRATE_ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
         }
-
+        */
         public static void register(IEventBus eventBus) {
         CRATES.register(eventBus);
     }

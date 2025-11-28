@@ -1,7 +1,7 @@
 package net.ShadowStorm7894.CustomLootCrates.item;
 
 import net.ShadowStorm7894.CustomLootCrates.CustomLootCrates;
-import net.ShadowStorm7894.CustomLootCrates.item.custom.MetalDetectorItem;
+import net.ShadowStorm7894.CustomLootCrates.item.custom.LootCrateKeys;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -12,14 +12,8 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, CustomLootCrates.MOD_ID);
 
-    public static final RegistryObject<Item> SAPPHIRE = ITEMS.register("sapphire",
-            () -> new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> RAW_SAPPHIRE = ITEMS.register("raw_sapphire",
-            () -> new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> METAL_DETECTOR = ITEMS.register("metal_detector",
-            () -> new MetalDetectorItem(new Item.Properties().durability(100)));
+    public static final RegistryObject<Item> EXAMPLE_CRATE_KEY = ITEMS.register("example_crate_key",
+            () -> new LootCrateKeys(new Item.Properties()));
 
 
     public static void register(IEventBus eventBus) {

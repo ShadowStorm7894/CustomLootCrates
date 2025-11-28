@@ -1,38 +1,26 @@
 package net.ShadowStorm7894.CustomLootCrates.item.custom;
 
-import net.ShadowStorm7894.CustomLootCrates.block.ModCrates;
 import net.ShadowStorm7894.CustomLootCrates.item.ModCrateItems;
-import net.ShadowStorm7894.CustomLootCrates.item.ModItems;
-import net.ShadowStorm7894.CustomLootCrates.tags.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.stats.Stats;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.ThrownEnderpearl;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Stream;
+
 
 public class LootCrateKeys extends Item {
     public LootCrateKeys(Properties pProperties) {
@@ -45,6 +33,7 @@ public class LootCrateKeys extends Item {
         Player player = pContext.getPlayer();
         ItemStack itemstack = pContext.getItemInHand();
         List<TagKey<Item>> itemTags = itemstack.getTags().toList();
+
         boolean correctcrate = false;
         assert player != null;
         player.getCooldowns().addCooldown(this, cooldown);
@@ -54,13 +43,22 @@ public class LootCrateKeys extends Item {
             BlockPos blockPos = pContext.getClickedPos();
             BlockState state = pContext.getLevel().getBlockState(blockPos);
             ResourceLocation id = ForgeRegistries.BLOCKS.getKey(state.getBlock());
+            player.sendSystemMessage(Component.literal("1"));
             for(RegistryObject<Item> crateItem : ModCrateItems.CRATE_ITEMS.getEntries()){
-                if(id == ForgeRegistries.ITEMS.getKey(crateItem.get())){
+                if(id.toString().equals(ForgeRegistries.ITEMS.getKey(crateItem.get()).toString())){
+                    player.sendSystemMessage(Component.literal("2"));
+
                     List<TagKey<Item>> crateTags = getCrateItemTags(pContext.getLevel(), crateItem.get());
+                    player.sendSystemMessage(Component.literal("3"));
+
                     for(TagKey<Item> tag : crateTags) {
                         if(itemTags.contains(tag)){
-                            //gamble away??
+                            correctcrate = true;
+                            player.sendSystemMessage(Component.translatable("That's the right crate!"));
                         }
+                    }
+                    if(!correctcrate){
+                        player.sendSystemMessage(Component.translatable("That's the wrong crate!"));
                     }
                 }
             }
@@ -86,7 +84,6 @@ public class LootCrateKeys extends Item {
         // Return tag keys
         return holder.tags().toList();
     }
-
 }
 
 
